@@ -1,4 +1,5 @@
 import React from "react";
+import { reviews } from "../Utils/Reviews.js";
 import male1 from "../Assets/male-1.jpg";
 import star from "../Assets/star.png";
 
