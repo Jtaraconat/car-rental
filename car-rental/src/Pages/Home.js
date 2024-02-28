@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <SearchCard />
       <CarCard />
-      <ReviewCard name="John Smith" review="Location parfaite" stars="5" />
+      <ReviewCard />
       <Footer />
     </div>
   );

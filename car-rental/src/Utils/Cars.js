@@ -1,47 +1,35 @@
-import yaris from "../Assets/yaris.jpg";
-import puma from "../Assets/puma.jpg";
+import yaris from "../Assets/cars/yaris.jpg";
+import puma from "../Assets/cars/puma.jpg";
+import tesla from "../Assets/cars/tesla-y.webp";
+import peugeot from "../Assets/cars/peugeot.jpg";
 
 export const cars = [
   {
-    name: "Nissan 350z",
-    description: "Description for nissan 350z",
-    characteristics: [
-      "characteristic 1 350z",
-      "characteristic 2 350z",
-      "characteristic 3 350z",
-    ],
+    name: "Tesla Model Y",
+    image: tesla,
+    description: "Description for model Y",
+    characteristics: ["Electrique", "Automatique", "5 places"],
     category: "Berline",
   },
   {
-    name: "Chevrolet spark",
-    description: "Description for chevrolet spark",
-    characteristics: [
-      "characteristic 1 chevrolet spark",
-      "characteristic 2 chevrolet spark",
-      "characteristic 3 chevrolet spark",
-    ],
+    name: "Peugeot 108",
+    image: peugeot,
+    description: "Description for Peugeot 108",
+    characteristics: ["Essence", "Manuelle", "5 places"],
     category: "Citadine",
   },
   {
     name: "Ford puma",
     image: puma,
     description: "Description for Ford puma",
-    characteristics: [
-      "characteristic 1 Ford puma",
-      "characteristic 2 Ford puma",
-      "characteristic 3 Ford puma",
-    ],
+    characteristics: ["Essence / E80", "Automatique", "5 places"],
     category: "SUV",
   },
   {
     name: "Toyota yaris",
     image: yaris,
     description: "Description for Toyota yaris",
-    characteristics: [
-      "characteristic 1 Toyota yaris",
-      "characteristic 2 Toyota yaris",
-      "characteristic 3 Toyota yaris",
-    ],
+    characteristics: ["Essence", "Manuelle", "5 places"],
     category: "Citadine",
   },
 ];

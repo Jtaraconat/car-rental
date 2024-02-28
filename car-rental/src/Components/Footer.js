@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="bg-zinc-950 h-96 self-end">
+    <div className="bg-zinc-950 h-96 flex flex-col justify-between">
       <div className="flex flex-row justify-between">
         <div className="flex text-white">
           <ul className="flex flex-col">
@@ -13,7 +13,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="text-white text-center mt-3">
+      <div className="text-white text-center mt-3 ">
         (Ce site est un site de démonstration)
       </div>
     </div>

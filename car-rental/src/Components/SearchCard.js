@@ -2,8 +2,8 @@ import React from "react";
 
 export default function SearchCard() {
   return (
-    <div className="bg-indigo-400 border-solid border-2 border-black rounded mt-3 mb-3 pt-5 pb-5">
-      <form className="flex flex-col">
+    <div className="bg-indigo-400 border-solid border-2 border-black rounded mt-3 mb-5 pt-5 pb-5 h-96 max-h96 flex">
+      <form className="flex flex-col w-full justify-evenly">
         <div className="location grid grid-cols-12 gap-3 items-end p-5">
           <div className="location-input col-span-8">
             <label htmlFor="pickup-location">Retrait et retour</label>
