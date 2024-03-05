@@ -1,11 +1,63 @@
-import transit from "../Assets/utilitaires/transit.jpeg";
+import transit from "../Assets/utilitaires/ford-transit.png";
+import transitCargo from "../Assets/utilitaires/ford-transit-cargo.png";
+import primastar from "../Assets/utilitaires/nissan-primastar.png";
+import trafic from "../Assets/utilitaires/renault-trafic.png";
+import traficCargo from "../Assets/utilitaires/renault-trafic-cargo.png";
 
 export const utilitaires = [
   {
     name: "Ford Transit",
     image: transit,
     description: "Description for transit",
-    characteristics: ["Manuelle", "Diesel", "3 places", "6m3"],
-    category: "Berline",
+    engine: "Diesel",
+    gearbox: "Manuelle",
+    capacity: 6,
+    passenger: 3,
+    type: "Utilitaire",
+    price: 25,
+  },
+  {
+    name: "Ford Transit Cargo",
+    image: transitCargo,
+    description: "Description for Ford Transit Cargo",
+    engine: "Diesel",
+    gearbox: "Manuelle",
+    capacity: 6,
+    passenger: 3,
+    type: "Utilitaire",
+    price: 25,
+  },
+  {
+    name: "Nissan Primastar",
+    image: primastar,
+    description: "Description for Nissan Primastar",
+    engine: "Diesel",
+    gearbox: "Manuelle",
+    capacity: 6,
+    passenger: 3,
+    type: "Utilitaire",
+    price: 25,
+  },
+  {
+    name: "Renault Trafic",
+    image: trafic,
+    description: "Description for Renault Trafic",
+    engine: "Diesel",
+    gearbox: "Manuelle",
+    capacity: 6,
+    passenger: 3,
+    type: "Utilitaire",
+    price: 25,
+  },
+  {
+    name: "Renault Trafic Cargo",
+    image: traficCargo,
+    description: "Description for Renault Trafic Cargo",
+    engine: "Diesel",
+    gearbox: "Manuelle",
+    capacity: 6,
+    passenger: 3,
+    type: "Utilitaire",
+    price: 25,
   },
 ];

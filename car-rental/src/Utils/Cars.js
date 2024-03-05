@@ -1,35 +1,63 @@
-import yaris from "../Assets/cars/yaris.jpg";
-import puma from "../Assets/cars/puma.jpg";
-import tesla from "../Assets/cars/tesla-y.webp";
-import peugeot from "../Assets/cars/peugeot.jpg";
+import chr from "../Assets/cars/ch-r.png";
+import tesla from "../Assets/cars/tesla-y.png";
+import prius from "../Assets/cars/prius.png";
+import peugeot208 from "../Assets/cars/208.png";
+import aygo from "../Assets/cars/aygo.png";
 
 export const cars = [
   {
     name: "Tesla Model Y",
+    type: "Vehicule",
     image: tesla,
     description: "Description for model Y",
-    characteristics: ["Electrique", "Automatique", "5 places"],
+    passenger: 5,
+    engine: "Electrique",
+    gearbox: "Manuelle",
     category: "Berline",
+    price: 70,
   },
   {
-    name: "Peugeot 108",
-    image: peugeot,
-    description: "Description for Peugeot 108",
-    characteristics: ["Essence", "Manuelle", "5 places"],
+    name: "Toyota Prius",
+    type: "Vehicule",
+    image: prius,
+    description: "Description for Toyota Prius",
+    passenger: 5,
+    engine: "Hybride",
+    gearbox: "Manuelle",
     category: "Citadine",
+    price: 20,
   },
   {
-    name: "Ford puma",
-    image: puma,
-    description: "Description for Ford puma",
-    characteristics: ["Essence / E80", "Automatique", "5 places"],
+    name: "Toyota Ch-R",
+    type: "Vehicule",
+    image: chr,
+    description: "Description for Toyota Ch-R",
+    passenger: 5,
+    engine: "Electrique",
+    gearbox: "automatique",
     category: "SUV",
+    price: 50,
   },
   {
-    name: "Toyota yaris",
-    image: yaris,
-    description: "Description for Toyota yaris",
-    characteristics: ["Essence", "Manuelle", "5 places"],
+    name: "Toyota Aygo",
+    type: "Vehicule",
+    image: aygo,
+    description: "Description for Toyota Aygo",
+    passenger: 5,
+    engine: "Essence",
+    gearbox: "Manuelle",
     category: "Citadine",
+    price: 20,
+  },
+  {
+    name: "Peugeot 208",
+    type: "Vehicule",
+    image: peugeot208,
+    description: "Description for Toyota Aygo",
+    passenger: 5,
+    engine: "Essence",
+    gearbox: "Manuelle",
+    category: "Citadine",
+    price: 20,
   },
 ];
