@@ -1,8 +1,9 @@
 import React from "react";
-import SearchCard from "../Components/SearchCard.js";
-import CarSection from "../Components/CarSection.js";
-import ReviewCard from "../Components/ReviewCard.js";
-import Footer from "../Components/Footer.js";
+import SearchCard from "../Components/Home/SearchCard.js";
+import CarSection from "../Components/Home/CarSection.js";
+import ReviewCard from "../Components/Home/ReviewCard.js";
+import Footer from "../Components/Home/Footer.js";
+import AboutSection from "../Components/Home/AboutSection.js";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <SearchCard />
       <CarSection />
       <ReviewCard />
+      <AboutSection />
       <Footer />
     </div>
   );

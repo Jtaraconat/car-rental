@@ -2,15 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SearchCard() {
-  {
-    /* 
-  const [pickupLocation, setPickupLocation] = useState("");
-  const [returnLocation, setReturnLocation] = useState("");
-  const [pickupDate, setPickupDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
-*/
-  }
-
   const [isVisible, setIsVisible] = useState(false);
   const [dateStr, setDateStr] = useState("");
   const [searchData, setSearchData] = useState({
@@ -18,6 +9,9 @@ export default function SearchCard() {
     returnLocation: "",
     pickupDate: "",
     returnDate: "",
+    pickupTimestamp: 0,
+    returnTimestamp: 0,
+    vehiculeType: "voiture",
   });
   let navigate = useNavigate();
 
@@ -55,12 +49,24 @@ export default function SearchCard() {
   function getPickupDate(e) {
     e.preventDefault();
     getTodayStr();
-    setSearchData({ ...searchData, pickupDate: e.target.value });
+    setSearchData({
+      ...searchData,
+      pickupDate: e.target.value,
+      pickupTimestamp: e.target.valueAsNumber,
+    });
   }
 
   function getReturnDate(e) {
     e.preventDefault();
-    setSearchData({ ...searchData, returnDate: e.target.value });
+    setSearchData({
+      ...searchData,
+      returnDate: e.target.value,
+      returnTimestamp: e.target.valueAsNumber,
+    });
+  }
+
+  function handleOptionChange(e) {
+    setSearchData({ ...searchData, vehiculeType: e.target.value });
   }
 
   function searchRental(e) {
@@ -79,6 +85,30 @@ export default function SearchCard() {
   return (
     <div className="bg-indigo-400 border-solid border-2 border-black rounded mt-3 mb-5 pt-5 pb-5 h-96 max-h96 flex">
       <form className="flex flex-col w-full justify-evenly">
+        <div className="grid grid-cols-12 p-5">
+          <div className="col-span-2">
+            <input
+              name="vehiculeType"
+              onChange={handleOptionChange}
+              checked={searchData.vehiculeType === "voiture"}
+              type="radio"
+              id="voiture"
+              value="voiture"
+            />
+            <label htmlFor="voiture">Voiture</label>
+          </div>
+          <div className="col-span-2">
+            <input
+              name="vehiculeType"
+              onChange={handleOptionChange}
+              checked={searchData.vehiculeType === "utilitaire"}
+              type="radio"
+              id="utilitaire"
+              value="utilitaire"
+            />
+            <label htmlFor="utilitaire">Utilitaire</label>
+          </div>
+        </div>
         <div className="location grid grid-cols-12 gap-3 items-end p-5">
           <div className="location-input col-span-8">
             <label htmlFor="pickup-location">Retrait et retour</label>

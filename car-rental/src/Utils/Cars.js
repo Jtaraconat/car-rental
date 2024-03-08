@@ -1,55 +1,60 @@
-import chr from "../Assets/cars/ch-r.png";
+import p5008 from "../Assets/cars/5008.png";
 import tesla from "../Assets/cars/tesla-y.png";
-import prius from "../Assets/cars/prius.png";
+import corolla from "../Assets/cars/corolla.png";
 import peugeot208 from "../Assets/cars/208.png";
-import aygo from "../Assets/cars/aygo.png";
+import f500 from "../Assets/cars/fiat500.png";
 
 export const cars = [
   {
+    id: 1,
     name: "Tesla Model Y",
     type: "Vehicule",
     image: tesla,
     description: "Description for model Y",
     passenger: 5,
     engine: "Electrique",
-    gearbox: "Manuelle",
+    gearbox: "Automatique",
     category: "Berline",
     price: 70,
   },
   {
-    name: "Toyota Prius",
+    id: 2,
+    name: "Toyota Corolla",
     type: "Vehicule",
-    image: prius,
+    image: corolla,
     description: "Description for Toyota Prius",
     passenger: 5,
     engine: "Hybride",
-    gearbox: "Manuelle",
+    gearbox: "Automatique",
     category: "Citadine",
     price: 20,
   },
   {
-    name: "Toyota Ch-R",
+    id: 3,
+    name: "Peugeot 5008",
     type: "Vehicule",
-    image: chr,
-    description: "Description for Toyota Ch-R",
+    image: p5008,
+    description: "Description for Peugeot 5008",
     passenger: 5,
-    engine: "Electrique",
-    gearbox: "automatique",
+    engine: "Essence",
+    gearbox: "Automatique",
     category: "SUV",
     price: 50,
   },
   {
-    name: "Toyota Aygo",
+    id: 4,
+    name: "Fiat 500",
     type: "Vehicule",
-    image: aygo,
-    description: "Description for Toyota Aygo",
-    passenger: 5,
+    image: f500,
+    description: "Description for Fiat 500",
+    passenger: 4,
     engine: "Essence",
     gearbox: "Manuelle",
     category: "Citadine",
     price: 20,
   },
   {
+    id: 5,
     name: "Peugeot 208",
     type: "Vehicule",
     image: peugeot208,

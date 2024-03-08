@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { cars } from "../Utils/Cars";
-import { utilitaires } from "../Utils/Utilitaires";
-import CarCard from "../Components/CarCard";
+import { cars } from "../../Utils/Cars";
+import { utilitaires } from "../../Utils/Utilitaires";
+import CarCard from "../Card/CarCard";
 
 export default function CarSection() {
   const [car, setCar] = useState("");

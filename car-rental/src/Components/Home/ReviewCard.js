@@ -1,7 +1,7 @@
 import React, { useDebugValue } from "react";
 import { useState, useEffect } from "react";
-import { reviews } from "../Utils/Reviews.js";
-import star from "../Assets/reviews/star.png";
+import { reviews } from "../../Utils/Reviews.js";
+import star from "../../Assets/reviews/star.png";
 
 export default function ReviewCard() {
   const [review, setReview] = useState("");
