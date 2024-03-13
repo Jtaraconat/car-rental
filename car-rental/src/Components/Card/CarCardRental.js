@@ -2,25 +2,35 @@ import React, { useEffect, useState } from "react";
 import bolt from "../../Assets/misc/bolt.png";
 import gas from "../../Assets/misc/gas.png";
 import user from "../../Assets/misc/user.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function CarCardRental({
   id,
   image,
-  type,
   name,
   category,
   engine,
   gearbox,
   passenger,
-  description,
   price,
-  days,
+  rentalDuration,
   pickupDate,
   returnDate,
+  pickupLocation,
+  returnLocation,
 }) {
   let navigate = useNavigate();
+
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedVehicule, setSelectedVehicule] = useState({
+    vehiculeId: id,
+    vehiculeName: name,
+    vehiculeImage: image,
+    rentalDuration: rentalDuration,
+    priceWithoutOptions: price * rentalDuration,
+    pickupLocation: pickupLocation,
+    returnLocation: returnLocation,
+  });
 
   function click() {
     setIsVisible(!isVisible);
@@ -40,6 +50,17 @@ export default function CarCardRental({
 
   function rentalSelected(e) {
     e.preventDefault();
+    setSelectedVehicule({
+      ...selectedVehicule,
+      vehiculeId: id,
+      vehiculeName: name,
+      vehiculeImage: image,
+      rentalDuration: rentalDuration,
+      priceWithoutOptions: price * rentalDuration,
+      pickupLocation: pickupLocation,
+      returnLocation: returnLocation,
+    });
+    navigate("/options", { state: { selectedVehicule } });
   }
 
   return (
@@ -106,8 +127,10 @@ export default function CarCardRental({
               </p>
               <p>
                 Total: <span className="text-lg font-semibold">{price}€</span>
-                /jour, pour <span>{days} jour(s)</span> soit:{" "}
-                <span className="text-3xl font-bold">{price * days}€</span>
+                /jour, pour <span>{rentalDuration} jour(s)</span> soit:{" "}
+                <span className="text-3xl font-bold">
+                  {price * rentalDuration}€
+                </span>
               </p>
             </div>
             <div className="text-lg font-semibold p-3">

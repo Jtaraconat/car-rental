@@ -9,11 +9,20 @@ export default function RentalResults() {
   const [car, setCar] = useState("");
   const [utilitaire, setUtilitaire] = useState("");
   const [count, setCount] = useState(0);
-  const [days, setDays] = useState(0);
+  const [rentalDuration, setRentalDuration] = useState(0);
   const [filteredData, setFilteredData] = useState({});
   const carEngineOptions = ["Essence", "Hybride", "Electrique"];
   const utilitaireEngineOptions = ["Diesel", "Electrique"];
   const gearboxOptions = ["Automatique", "Manuelle"];
+  const [searchedData, setSearchData] = useState({
+    pickupLocation: location.state.searchData.pickupLocation,
+    returnLocation: location.state.searchData.returnLocation,
+    pickupDate: location.state.searchData.pickupDate,
+    returnDate: location.state.searchData.returnDate,
+    pickupTimestamp: location.state.searchData.pickupTimestamp,
+    returnTimestamp: location.state.searchData.returnTimestamp,
+    vehiculeType: location.state.searchData.vehiculeType,
+  });
 
   useEffect(() => {
     setCar(cars[count]);
@@ -49,10 +58,8 @@ export default function RentalResults() {
   }
 
   function getNumberDays() {
-    let pickupTimestamp = location.state.searchData.pickupTimestamp;
-    let returnTimestamp = location.state.searchData.returnTimestamp;
-    let eta = returnTimestamp - pickupTimestamp;
-    setDays(eta / 86400000);
+    let eta = searchedData.returnTimestamp - searchedData.pickupTimestamp;
+    setRentalDuration(eta / 86400000);
   }
 
   return (
@@ -63,13 +70,11 @@ export default function RentalResults() {
       >
         <div>
           <div className="flex flex-row items-center">
-            <p className="uppercase">
-              {location.state.searchData.pickupLocation}
-            </p>
+            <p className="uppercase">{searchedData.pickupLocation}</p>
           </div>
           <div className="flex flex-row gap-4">
-            <p>Du: {formatedDate(location.state.searchData.pickupDate)}</p>
-            <p>Au: {formatedDate(location.state.searchData.returnDate)}</p>
+            <p>Du: {formatedDate(searchedData.pickupDate)}</p>
+            <p>Au: {formatedDate(searchedData.returnDate)}</p>
           </div>
         </div>
         <div>
@@ -93,7 +98,7 @@ export default function RentalResults() {
           name="engine"
         >
           <option value="All engine">Filtrer par type de moteur</option>
-          {location.state.searchData.vehiculeType === "voiture"
+          {searchedData.vehiculeType === "voiture"
             ? carEngineOptions.map((engine) => {
                 return <option value={engine}>{engine}</option>;
               })
@@ -105,7 +110,7 @@ export default function RentalResults() {
       <div className="">
         <h2 className="mb-2 text-xl font-semibold">NOS VOITURES</h2>
 
-        {location.state.searchData.vehiculeType === "voiture"
+        {searchedData.vehiculeType === "voiture"
           ? cars.map((item) => {
               if (
                 (item.gearbox == filteredData.gearbox &&
@@ -128,9 +133,11 @@ export default function RentalResults() {
                     passenger={item.passenger}
                     description={item.description}
                     price={item.price}
-                    days={days}
-                    pickupDate={location.state.searchData.pickupDate}
-                    returnDate={location.state.searchData.returnDate}
+                    rentalDuration={rentalDuration}
+                    pickupDate={searchedData.pickupDate}
+                    returnDate={searchedData.returnDate}
+                    pickupLocation={searchedData.pickupLocation}
+                    returnLocation={searchedData.returnLocation}
                   />
                 );
               } else if (
@@ -150,9 +157,11 @@ export default function RentalResults() {
                     passenger={item.passenger}
                     description={item.description}
                     price={item.price}
-                    days={days}
-                    pickupDate={location.state.searchData.pickupDate}
-                    returnDate={location.state.searchData.returnDate}
+                    rentalDuration={rentalDuration}
+                    pickupDate={searchedData.pickupDate}
+                    returnDate={searchedData.returnDate}
+                    pickupLocation={searchedData.pickupLocation}
+                    returnLocation={searchedData.returnLocation}
                   />
                 );
               } else if (filteredData.engine == "Diesel") {
@@ -180,9 +189,9 @@ export default function RentalResults() {
                     passenger={item.passenger}
                     description={item.description}
                     price={item.price}
-                    days={days}
-                    pickupDate={location.state.searchData.pickupDate}
-                    returnDate={location.state.searchData.returnDate}
+                    rentalDuration={rentalDuration}
+                    pickupDate={searchedData.pickupDate}
+                    returnDate={searchedData.returnDate}
                   />
                 );
               } else if (
@@ -202,9 +211,9 @@ export default function RentalResults() {
                     passenger={item.passenger}
                     description={item.description}
                     price={item.price}
-                    days={days}
-                    pickupDate={location.state.searchData.pickupDate}
-                    returnDate={location.state.searchData.returnDate}
+                    rentalDuration={rentalDuration}
+                    pickupDate={searchedData.pickupDate}
+                    returnDate={searchedData.returnDate}
                   />
                 );
               }
