@@ -68,7 +68,7 @@ export default function KmsCard({
   );
 
   const inactiveCard = (
-    <div className="border border-solid border-black rounded-lg p-2 col-span-6  hover:cursor-pointer hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500 bg-slate-500">
+    <div className="border border-solid border-black rounded-lg p-2 col-span-6  hover:cursor-pointer hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500 bg-slate-200">
       <div key={title} className="grid grid-cols-12 ">
         <div className="col-span-12 mb-4">
           <h2 className="col-span-12 text-3xl  font-bold">{title}</h2>

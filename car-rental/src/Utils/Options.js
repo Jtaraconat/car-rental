@@ -71,3 +71,72 @@ export const protections = [
     },
   },
 ];
+
+export const options = [
+  {
+    id: 0,
+    title: "Conducteur supplémentaire",
+    price: 12,
+    priceInfos: "jour et conducteur",
+    description: "Partagez le volant avec un conducteur supplémentaire",
+  },
+  {
+    id: 1,
+    title: "Sangle",
+    price: 4,
+    priceInfos: "sangle",
+  },
+  {
+    id: 2,
+    title: "Diable",
+    price: 10,
+    priceInfos: "jour et diable",
+  },
+  {
+    id: 3,
+    title: "Protection intérieure",
+    price: 8,
+    priceInfos: "jour",
+    description:
+      "Vous ne serez pas tenu responsable en cas de dommages à l'intérieur du véhicule",
+  },
+
+  {
+    id: 4,
+    title: "Système de navigation",
+    price: 20,
+    priceInfos: "jour",
+    description:
+      "Profitez d'un guidage mains libres et roulez en toute sécurité",
+  },
+  {
+    id: 5,
+    title: "Couverture à l'étranger",
+    price: 18,
+    priceInfos: "une fois",
+    description: "Conduisez votre véhicule en dehors des frontières françaises",
+  },
+  {
+    id: 6,
+    title: "Chaînes neige / Chaussettes",
+    price: 14,
+    priceInfos: "jour",
+    description: "Roulez en toute sécurité sur la neige et la glace",
+  },
+  {
+    id: 7,
+    title: "Protection pneux et vitres",
+    price: 5,
+    priceInfos: "jour",
+    description:
+      "Vous ne serez pas tenu responsable en cas de vitres ou pneus endommagés",
+  },
+  {
+    id: 8,
+    title: "Ravitaillement / Recharge",
+    price: 25,
+    priceInfos: "une fois",
+    description:
+      "Vous êtes pressé? Nous nous occupons de faire le plein ou de recharger votre véhicule de location à son retour. Le carburant ou l'electricité vous est facturé au prix actuel.",
+  },
+];
