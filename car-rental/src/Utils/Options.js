@@ -72,25 +72,30 @@ export const protections = [
   },
 ];
 
-export const options = [
+export const optionsData = [
   {
     id: 0,
     title: "Conducteur supplémentaire",
     price: 12,
-    priceInfos: "jour et conducteur",
-    description: "Partagez le volant avec un conducteur supplémentaire",
+    priceInfos: "jour",
+    description:
+      "Partagez le volant avec un conducteur supplémentaire. Vous avez la possibilité d'ajouter un seul conducteur supplémentaire.",
   },
   {
     id: 1,
     title: "Sangle",
-    price: 4,
-    priceInfos: "sangle",
+    price: 6,
+    priceInfos: "jeu de sangles",
+    description:
+      "Nous vous fournissons des sangles pour sécuriser votre chargement.",
   },
   {
     id: 2,
     title: "Diable",
-    price: 10,
-    priceInfos: "jour et diable",
+    price: 17,
+    priceInfos: "jour",
+    description:
+      "Nous vous fournissons 2 diables pour vous aider à charger votre location.",
   },
   {
     id: 3,
@@ -98,7 +103,7 @@ export const options = [
     price: 8,
     priceInfos: "jour",
     description:
-      "Vous ne serez pas tenu responsable en cas de dommages à l'intérieur du véhicule",
+      "Vous ne serez pas tenu responsable en cas de dommages à l'intérieur du véhicule.",
   },
 
   {
@@ -107,21 +112,22 @@ export const options = [
     price: 20,
     priceInfos: "jour",
     description:
-      "Profitez d'un guidage mains libres et roulez en toute sécurité",
+      "Profitez d'un guidage mains libres et roulez en toute sécurité.",
   },
   {
     id: 5,
     title: "Couverture à l'étranger",
     price: 18,
     priceInfos: "une fois",
-    description: "Conduisez votre véhicule en dehors des frontières françaises",
+    description:
+      "Conduisez votre véhicule en dehors des frontières françaises.",
   },
   {
     id: 6,
     title: "Chaînes neige / Chaussettes",
     price: 14,
     priceInfos: "jour",
-    description: "Roulez en toute sécurité sur la neige et la glace",
+    description: "Roulez en toute sécurité sur la neige et la glace.",
   },
   {
     id: 7,
@@ -129,7 +135,7 @@ export const options = [
     price: 5,
     priceInfos: "jour",
     description:
-      "Vous ne serez pas tenu responsable en cas de vitres ou pneus endommagés",
+      "Vous ne serez pas tenu responsable en cas de vitres ou pneus endommagés.",
   },
   {
     id: 8,

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { protections, kms } from "../../Utils/Options";
 import check from "../../Assets/misc/check.png";
 import close from "../../Assets/misc/close.png";
 

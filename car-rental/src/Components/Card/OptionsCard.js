@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { options } from "../../Utils/Options";
 
 export default function OptionsCard({
   id,
@@ -10,11 +9,9 @@ export default function OptionsCard({
   addSingleOption,
   deleteSingleOption,
   optionSelected,
-  increment,
-  decrement,
-  count,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  let displayedButton;
 
   const detailsButton = (
     <button
@@ -32,25 +29,6 @@ export default function OptionsCard({
       Fermer les détails
     </button>
   );
-
-  const addMultipleButton = (
-    <div className="grid grid-cols-12 border border-2 border-solid border-black rounded-full p-1">
-      <button
-        onClick={decrement}
-        className="col-span-4 border border-2 border-solid border-slate-500 rounded-full hover:bg-black hover:text-white"
-      >
-        -
-      </button>
-      <p className="col-span-4 text-center">{count}</p>
-      <button
-        onClick={increment}
-        className="col-span-4 border border-2 border-solid border-slate-500 rounded-full hover:bg-black hover:text-white"
-      >
-        +
-      </button>
-    </div>
-  );
-  let displayedButton;
 
   const addButton = (
     <div className="grid grid-cols-12 ">
@@ -74,12 +52,6 @@ export default function OptionsCard({
     </div>
   );
 
-  useEffect(() => {
-    if (optionSelected != undefined) {
-      console.log(optionSelected);
-    }
-  }, [optionSelected]);
-
   if (optionSelected === undefined) {
     return null;
   } else if (optionSelected.includes(id)) {
@@ -99,15 +71,7 @@ export default function OptionsCard({
             ? null
             : detailsButton}
         </div>
-        <div className="col-span-2 col-start-10 ">
-          {id === 0
-            ? addMultipleButton
-            : id === 1
-            ? addMultipleButton
-            : id === 2
-            ? addMultipleButton
-            : displayedButton}
-        </div>
+        <div className="col-span-2 col-start-10 ">{displayedButton}</div>
       </div>
 
       <div>
