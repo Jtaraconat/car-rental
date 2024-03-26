@@ -19,13 +19,12 @@ export default function CarCard({
         }}
       ></div>
 
-      <div className="grid grid-cols-12 text-blue-700 text-lg font-semibold  rounded p-2">
-        <h2 className="col-span-12 justify-self-center p-3">{name}</h2>
-        <h3 className="col-span-4">{category}</h3>
-        <div className="col-span-12"></div>
-        <p className="col-span-12 justify-self-center">{description}</p>
-        <p className="col-span-12 justify-self-center">
-          A partir de {price}€/jour
+      <div className="grid grid-cols-12 text-lg font-semibold  rounded p-2 justify-items-center">
+        <h2 className="col-span-12 p-1">{name}</h2>
+        <h3 className="col-span-12 p-1">{category}</h3>
+        <p className="col-span-12 p-1">
+          A partir de <span className="text-2xl text-violet-600">{price}€</span>
+          /jour
         </p>
       </div>
     </div>

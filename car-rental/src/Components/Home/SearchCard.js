@@ -83,97 +83,85 @@ export default function SearchCard() {
   }
 
   return (
-    <div className="bg-indigo-400 border-solid border-2 border-black rounded mt-3 mb-5 pt-5 pb-5 h-96 max-h96 flex">
-      <form className="flex flex-col w-full justify-evenly">
-        <div className="grid grid-cols-12 p-5">
-          <div className="col-span-2">
-            <input
-              name="vehiculeType"
-              onChange={handleOptionChange}
-              checked={searchData.vehiculeType === "voiture"}
-              type="radio"
-              id="voiture"
-              value="voiture"
-            />
-            <label htmlFor="voiture">Voiture</label>
-          </div>
-          <div className="col-span-2">
-            <input
-              name="vehiculeType"
-              onChange={handleOptionChange}
-              checked={searchData.vehiculeType === "utilitaire"}
-              type="radio"
-              id="utilitaire"
-              value="utilitaire"
-            />
-            <label htmlFor="utilitaire">Utilitaire</label>
-          </div>
-        </div>
-        <div className="location grid grid-cols-12 gap-3 items-end p-5">
-          <div className="location-input col-span-8">
-            <label htmlFor="pickup-location">Retrait et retour</label>
-            <input
-              id="pickup-location"
-              name="pickup-location"
-              className="w-full rounded"
-              placeholder="Rechercher votre ville de départ"
-              onChange={getPickupLocation}
-            ></input>
-            {isVisible ? (
+    <div className="border-solid border-2 border-black rounded-lg my-10 p-5 shadow-lg shadow-black/50 ">
+      <div className="mt-3 mb-3">
+        <form className="flex flex-col w-full justify-evenly">
+          <div className="grid grid-cols-12 mt-3 mb-3">
+            <div className="col-span-2">
               <input
-                id="return-location"
-                name="return-location"
+                name="vehiculeType"
+                onChange={handleOptionChange}
+                checked={searchData.vehiculeType === "voiture"}
+                type="radio"
+                id="voiture"
+                value="voiture"
+              />
+              <label htmlFor="voiture">Voiture</label>
+            </div>
+            <div className="col-span-2">
+              <input
+                name="vehiculeType"
+                onChange={handleOptionChange}
+                checked={searchData.vehiculeType === "utilitaire"}
+                type="radio"
+                id="utilitaire"
+                value="utilitaire"
+              />
+              <label htmlFor="utilitaire">Utilitaire</label>
+            </div>
+          </div>
+          <div className="location grid grid-cols-12 gap-3 items-end mb-3">
+            <div className="location-input col-span-8">
+              <label htmlFor="pickup-location">Retrait et retour</label>
+              <input
+                id="pickup-location"
+                name="pickup-location"
                 className="w-full rounded"
-                placeholder="Rechercher votre ville de retour"
-                onChange={getReturnLocation}
+                placeholder="Rechercher votre ville de départ"
+                onChange={getPickupLocation}
               ></input>
-            ) : (
-              ""
-            )}
+            </div>
           </div>
-          <div className="col-span-4" id="return-location">
-            <button
-              className="bg-white p-5 rounded"
-              onClick={getReturnLocation}
-            >
-              Lieu de retour différent?
-            </button>
+          <div className="date-selector grid grid-cols-12 gap-3 items-end">
+            <div className="flex flex-col col-span-4">
+              <label htmlFor="startDate" className="pr-2">
+                Date de départ
+              </label>
+              <input
+                type="date"
+                id="startDate"
+                name="startDate"
+                className="rounded"
+                onChange={getPickupDate}
+                min={dateStr}
+              ></input>
+            </div>
+            <div className="flex flex-col col-span-4">
+              <label htmlFor="returnDate" className="pr-2">
+                Date de retour
+              </label>
+              <input
+                type="date"
+                id="returnDate"
+                name="returnDate"
+                className="rounded"
+                onChange={getReturnDate}
+                min={searchData.pickupDate}
+              ></input>
+            </div>
           </div>
-        </div>
-        <div className="date-selector grid grid-cols-12 gap-3 items-end p-5">
-          <div className="flex flex-col col-span-4">
-            <label htmlFor="startDate" className="pr-2">
-              Date de départ
-            </label>
-            <input
-              type="date"
-              id="startDate"
-              name="startDate"
-              className="rounded"
-              onChange={getPickupDate}
-              min={dateStr}
-            ></input>
-          </div>
-          <div className="flex flex-col col-span-4">
-            <label htmlFor="returnDate" className="pr-2">
-              Date de retour
-            </label>
-            <input
-              type="date"
-              id="returnDate"
-              name="returnDate"
-              className="rounded"
-              onChange={getReturnDate}
-              min={searchData.pickupDate}
-            ></input>
-          </div>
-          <div className="search-button col-span-4">
-            <Link className="bg-white p-5 rounded" onClick={searchRental}>
-              Recherche un véhicule
-            </Link>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
+
+      <div className="mt-3 mb-3 flex justify-end">
+        <Link
+          className="bg-white rounded-lg border border-solid border-2 text-slate-600 border-slate-600 hover:bg-violet-600 hover:text-white p-5
+          transition-all "
+          onClick={searchRental}
+        >
+          Recherche un véhicule
+        </Link>
+      </div>
     </div>
   );
 }

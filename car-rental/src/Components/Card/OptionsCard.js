@@ -34,7 +34,7 @@ export default function OptionsCard({
     <div className="grid grid-cols-12 ">
       <button
         onClick={addSingleOption}
-        className="col-span-12 border-2 border-solid rounded-full border-black p-2 hover:bg-green-500 hover:text-white"
+        className="col-span-12 border-2 border-solid rounded-full border-black p-2 hover:bg-violet-600 hover:text-white all-transition"
       >
         Ajouter
       </button>
@@ -45,7 +45,7 @@ export default function OptionsCard({
     <div className="grid grid-cols-12 ">
       <button
         onClick={deleteSingleOption}
-        className="col-span-12 border-2 border-solid rounded-full border-black p-2 hover:bg-red-500 hover:text-white"
+        className="col-span-12 border-2 border-solid rounded-full border-black p-2 bg-red-500 text-white hover:bg-red-600 hover:text-white"
       >
         Retirer
       </button>
@@ -61,7 +61,7 @@ export default function OptionsCard({
   }
 
   return (
-    <div className="col-span-12 border border-solid border-black rounded-lg p-2">
+    <div className="col-span-6 border border-solid border-black rounded-lg p-2">
       <div className="grid grid-cols-12 mb-5">
         <div className="col-span-6">
           <h2 className="text-3xl font-bold">{title}</h2>
@@ -79,7 +79,9 @@ export default function OptionsCard({
           {price}€ / {priceInfos}
         </p>
         {isOpen ? (
-          <p className="bg-slate-200 rounded-lg h-20">{description}</p>
+          <p className="bg-slate-200 rounded-lg h-20 flex flex-col justify-center">
+            {description}
+          </p>
         ) : null}
       </div>
     </div>

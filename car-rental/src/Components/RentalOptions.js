@@ -8,7 +8,7 @@ import OptionsCard from "./Card/OptionsCard";
 export default function RentalOptions() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [activeProtectionIndex, setActiveProtectionIndex] = useState(0);
+  const [activeProtectionIndex, setActiveProtectionIndex] = useState(10);
   const [activeKmsIndex, setActiveKmsIndex] = useState(0);
   const [singleOptionArray, setSingleOptionArray] = useState([]);
 
@@ -86,101 +86,107 @@ export default function RentalOptions() {
   }, [activeKmsIndex]);
 
   return (
-    <div className="grid grid-cols-12 gap-3 p-2 mt-5">
+    <div className="grid grid-cols-12 gap-3 p-2 mt-5 mb-10">
       <h1 className="col-span-12 text-4xl">Choisissez vos options</h1>
-      <div className="col-span-12 flex flex-row justify-around">
+      <div className="col-span-12 flex flex-row justify-around my-5">
         <p>
-          Prix total:{" "}
-          <span className="text-lg font-bold">
+          Prix sans options:{" "}
+          <span className="text-2xl font-bold text-violet-600">
             {allRentalInfos.priceWithoutOptions}€
           </span>
         </p>
         <p>
           Durée de la location:{" "}
-          <span className="text-lg font-bold">
+          <span className="text-2xl font-bold text-violet-600">
             {allRentalInfos.rentalDuration} jour(s)
           </span>
         </p>
         <p>
           Véhicule sélectionné:{" "}
-          <span className="text-lg font-bold">
+          <span className="text-2xl font-bold text-violet-600">
             {allRentalInfos.vehiculeName}
           </span>
         </p>
       </div>
 
-      <div className="col-span-12 mt-5 text-xl">
-        <h2>Selectionnez la protection adaptée</h2>
+      <div className="grid grid-cols-12 col-span-12 gap-3 ">
+        <div className="col-span-12 mt-5 text-xl">
+          <h2>Selectionnez la protection adaptée</h2>
+        </div>
+
+        {protections.map((item) => {
+          return (
+            <ProtectionCard
+              id={item.id}
+              key={item.id}
+              title={item.title}
+              price={item.price}
+              characteristics={item.characteristics}
+              franchise={item.franchise}
+              totalOptionPrice={allRentalInfos.rentalDuration * item.price}
+              isActive={activeProtectionIndex === item.id}
+              onSelected={() => {
+                updateProtection(item.id);
+              }}
+            />
+          );
+        })}
       </div>
 
-      {protections.map((item) => {
-        return (
-          <ProtectionCard
-            id={item.id}
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            characteristics={item.characteristics}
-            franchise={item.franchise}
-            totalOptionPrice={allRentalInfos.rentalDuration * item.price}
-            isActive={activeProtectionIndex === item.id}
-            onSelected={() => {
-              updateProtection(item.id);
-            }}
-          />
-        );
-      })}
+      <div className="grid grid-cols-12 col-span-12 gap-3 ">
+        <div className="col-span-12 mt-5 text-xl">
+          <h2>Selectionnez le forfait kilométrique qui vous correspond</h2>
+        </div>
 
-      <div className="col-span-12 mt-5 text-xl">
-        <h2>Selectionnez le forfait kilométrique qui vous correspond</h2>
+        {kms.map((item) => {
+          return (
+            <KmsCard
+              id={item.id}
+              key={item.id}
+              title={item.title}
+              price={item.price}
+              characteristics={item.characteristics}
+              franchise={item.franchise}
+              totalOptionPrice={allRentalInfos.rentalDuration * item.price}
+              isActive={activeKmsIndex === item.id}
+              onSelected={() => {
+                updateKms(item.id);
+              }}
+            />
+          );
+        })}
       </div>
 
-      {kms.map((item) => {
-        return (
-          <KmsCard
-            id={item.id}
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            characteristics={item.characteristics}
-            franchise={item.franchise}
-            totalOptionPrice={allRentalInfos.rentalDuration * item.price}
-            isActive={activeKmsIndex === item.id}
-            onSelected={() => {
-              updateKms(item.id);
-            }}
-          />
-        );
-      })}
+      <div className="grid grid-cols-12 col-span-12 gap-3 ">
+        <div className="col-span-12 mt-5 text-xl">
+          <h2>Selectionnez les équipements dont vous avez besoin</h2>
+        </div>
 
-      <div className="col-span-12 mt-5 text-xl">
-        <h2>Selectionnez les équipements dont vous avez besoin</h2>
+        {optionsData.map((item) => {
+          return (
+            <OptionsCard
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              price={item.price}
+              priceInfos={item.priceInfos}
+              description={item.description}
+              addSingleOption={() => {
+                addSingleOption(item);
+              }}
+              deleteSingleOption={() => {
+                deleteSingleOption(item);
+              }}
+              optionSelected={singleOptionArray}
+            />
+          );
+        })}
       </div>
 
-      {optionsData.map((item) => {
-        return (
-          <OptionsCard
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            price={item.price}
-            priceInfos={item.priceInfos}
-            description={item.description}
-            addSingleOption={() => {
-              addSingleOption(item);
-            }}
-            deleteSingleOption={() => {
-              deleteSingleOption(item);
-            }}
-            optionSelected={singleOptionArray}
-          />
-        );
-      })}
-
-      <div className="col-span-2 col-start-11 ">
+      <div className="col-span-12 justify-self-end">
         <button
           onClick={submit}
-          className="border-2 border-solid rounded-full border-black p-2 w-32 text-xl"
+          className="border-2 border-solid rounded-full border-black p-2 w-40 text-xl hover:bg-violet-600 hover:text-white all-transition"
         >
           Confirmer
         </button>

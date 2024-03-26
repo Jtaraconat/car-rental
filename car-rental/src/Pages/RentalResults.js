@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { cars } from "../Utils/Cars";
 import { utilitaires } from "../Utils/Utilitaires";
 import CarCardRental from "../Components/Card/CarCardRental";
+import glass from "../Assets/misc/search-glass.png";
 
 export default function RentalResults() {
   const location = useLocation();
@@ -64,49 +65,70 @@ export default function RentalResults() {
 
   return (
     <div className="p-2 ">
-      <div
-        className="flex flex-row items-center justify-between border-solid border-2 border-black rounded-full p-3 w-1/2 font-medium text-sm mb-5"
-        id="search-recap"
-      >
-        <div>
-          <div className="flex flex-row items-center">
-            <p className="uppercase">{searchedData.pickupLocation}</p>
+      <div className="border border-2 border-black shadow shadow-lg shadow-slate-500 rounded-lg p-2 my-5">
+        <div
+          className="flex flex-row items-center justify-between  p-3 w-1/2 font-medium text-sm mb-5"
+          id="search-recap"
+        >
+          <div>
+            <div className="flex flex-row items-center">
+              <p className="uppercase">{searchedData.pickupLocation}</p>
+            </div>
+            <div className="flex flex-row gap-4">
+              <p>Du: {formatedDate(searchedData.pickupDate)}</p>
+              <p>Au: {formatedDate(searchedData.returnDate)}</p>
+            </div>
           </div>
-          <div className="flex flex-row gap-4">
-            <p>Du: {formatedDate(searchedData.pickupDate)}</p>
-            <p>Au: {formatedDate(searchedData.returnDate)}</p>
+          <div>
+            <Link
+              to="/"
+              className="flex flex-row gap-2 items-center border border-2 border-black rounded-full p-3 hover:bg-slate-300 transition-all "
+            >
+              <img src={glass} className="size-4"></img>
+              Modifier la recherche
+            </Link>
           </div>
         </div>
-        <div>
-          <Link to="/">Modifier la recherche</Link>
+        <div className="grid grid-cols-12 gap-3 mb-5">
+          <select
+            onChange={(e) => handleGearboxChange(e)}
+            className="col-span-3 rounded-full"
+            name="gearbox"
+          >
+            <option value="All gearbox">Filtrer par boîte de vitesses</option>
+            {gearboxOptions.map((gearbox) => {
+              return (
+                <option value={gearbox} key={gearbox}>
+                  {gearbox}
+                </option>
+              );
+            })}
+          </select>
+          <select
+            onChange={(e) => handleEngineChange(e)}
+            className="col-span-3 rounded-full"
+            name="engine"
+          >
+            <option value="All engine">Filtrer par type de moteur</option>
+            {searchedData.vehiculeType === "voiture"
+              ? carEngineOptions.map((engine) => {
+                  return (
+                    <option value={engine} key={engine}>
+                      {engine}
+                    </option>
+                  );
+                })
+              : utilitaireEngineOptions.map((engine) => {
+                  return (
+                    <option value={engine} key={engine}>
+                      {engine}
+                    </option>
+                  );
+                })}
+          </select>
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-3 mb-5">
-        <select
-          onChange={(e) => handleGearboxChange(e)}
-          className="col-span-3 rounded-full"
-          name="gearbox"
-        >
-          <option value="All gearbox">Filtrer par boîte de vitesses</option>
-          {gearboxOptions.map((gearbox) => {
-            return <option value={gearbox}>{gearbox}</option>;
-          })}
-        </select>
-        <select
-          onChange={(e) => handleEngineChange(e)}
-          className="col-span-3 rounded-full"
-          name="engine"
-        >
-          <option value="All engine">Filtrer par type de moteur</option>
-          {searchedData.vehiculeType === "voiture"
-            ? carEngineOptions.map((engine) => {
-                return <option value={engine}>{engine}</option>;
-              })
-            : utilitaireEngineOptions.map((engine) => {
-                return <option value={engine}>{engine}</option>;
-              })}
-        </select>
-      </div>
+
       <div className="">
         <h2 className="mb-2 text-xl font-semibold">NOS VOITURES</h2>
 

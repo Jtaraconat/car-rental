@@ -20,7 +20,7 @@ export default function UserInfosFormCard({
 }) {
   return (
     <div className="grid grid-cols-12 mt-2 border border-solid border-black p-2 rounded-lg shadow shadow-black">
-      <form className=" grid grid-cols-12 col-span-12 gap-3">
+      <form className=" grid grid-cols-12 col-span-12 gap-3 text-violet-600">
         <Input
           name="Nom"
           label="Nom"

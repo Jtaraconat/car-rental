@@ -13,14 +13,26 @@ export default function ProtectionCard({
   isActive,
 }) {
   const activeCard = (
-    <div className="border border-solid border-black rounded-lg p-2 col-span-6  hover:cursor-pointer hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500 shadow-lg shadow-black">
+    <div className="border border-solid border-black rounded-lg p-2 col-span-6  hover:cursor-pointer  shadow-lg shadow-black">
       <div key={title} className="grid grid-cols-12 ">
         <div className="col-span-12 mb-4">
           <h2 className="col-span-12 text-3xl font-bold">{title}</h2>
-          <p className="">
-            +<span className="text-2xl font-bold">{price}</span>
-            €/ jour
-          </p>
+          {price === 35 ? (
+            <p className="">
+              +<span className="text-2xl font-bold">{price}</span>
+              €/ jour
+            </p>
+          ) : price <= 30 && price >= 10 ? (
+            <p className="">
+              +<span className="text-2xl font-bold">{price}</span>
+              €/ jour
+            </p>
+          ) : price === 0 ? (
+            <p className="">
+              <span className="text-2xl font-bold">Inclus dans le prix</span>
+            </p>
+          ) : null}
+
           {price === 35 ? (
             <p className="text-green-500 font-bold">{franchise}</p>
           ) : price <= 30 && price >= 10 ? (
@@ -88,7 +100,7 @@ export default function ProtectionCard({
 
           <div className="flex flex-row justify-end ">
             <button
-              className="border-2 border-solid rounded-full border-black p-2 hover:bg-green-500 hover:text-white w-32"
+              className="border-2 border-solid rounded-full border-black p-2 bg-violet-600 text-white w-32"
               onClick={onSelected}
             >
               Option ajoutée
@@ -100,16 +112,27 @@ export default function ProtectionCard({
   );
 
   const inactiveCard = (
-    <div className="border border-solid border-black rounded-lg p-2 col-span-6  hover:cursor-pointer hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500 bg-slate-200">
+    <div className="border border-solid border-black rounded-lg p-2 col-span-6 bg-slate-600 hover:cursor-pointer hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500">
       <div key={title} className="grid grid-cols-12 ">
         <div className="col-span-12 mb-4">
           <h2 className="col-span-12 text-3xl font-bold">{title}</h2>
-          <p className="">
-            +<span className="text-2xl font-bold">{price}</span>
-            €/ jour
-          </p>
           {price === 35 ? (
-            <p className="text-green-500 font-bold">{franchise}</p>
+            <p className="">
+              +<span className="text-2xl font-bold">{price}</span>
+              €/ jour
+            </p>
+          ) : price <= 30 && price >= 10 ? (
+            <p className="">
+              +<span className="text-2xl font-bold">{price}</span>
+              €/ jour
+            </p>
+          ) : price === 0 ? (
+            <p className="">
+              <span className="text-2xl font-bold">Inclus dans le prix</span>
+            </p>
+          ) : null}
+          {price === 35 ? (
+            <p className="text-violet-600 font-bold">{franchise}</p>
           ) : price <= 30 && price >= 10 ? (
             <p>{franchise}</p>
           ) : price === 0 ? (
@@ -175,7 +198,7 @@ export default function ProtectionCard({
 
           <div className="flex flex-row justify-end ">
             <button
-              className="border-2 border-solid rounded-full border-black p-2 hover:bg-green-500 hover:text-white w-32"
+              className="border-2 border-solid rounded-full border-black p-2 hover:bg-violet-600 hover:text-white w-32 all-transition"
               onClick={onSelected}
             >
               Ajouter

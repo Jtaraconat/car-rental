@@ -6,6 +6,7 @@ import traficCargo from "../Assets/utilitaires/renault-trafic-cargo.png";
 
 export const utilitaires = [
   {
+    id: 10,
     name: "Ford Transit",
     image: transit,
     description: "Description for transit",
@@ -17,6 +18,7 @@ export const utilitaires = [
     price: 25,
   },
   {
+    id: 11,
     name: "Ford Transit Cargo",
     image: transitCargo,
     description: "Description for Ford Transit Cargo",
@@ -28,6 +30,7 @@ export const utilitaires = [
     price: 25,
   },
   {
+    id: 12,
     name: "Nissan Primastar",
     image: primastar,
     description: "Description for Nissan Primastar",
@@ -39,6 +42,7 @@ export const utilitaires = [
     price: 25,
   },
   {
+    id: 13,
     name: "Renault Trafic",
     image: trafic,
     description: "Description for Renault Trafic",
@@ -50,6 +54,7 @@ export const utilitaires = [
     price: 25,
   },
   {
+    id: 14,
     name: "Renault Trafic Cargo",
     image: traficCargo,
     description: "Description for Renault Trafic Cargo",

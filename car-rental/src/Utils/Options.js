@@ -31,17 +31,17 @@ export const kms = [
 
 export const protections = [
   {
-    id: 0,
+    id: 10,
     title: "Aucune protection",
     price: 0,
     franchise: "Franchise jusqu'à la valeur du véhicule",
     characteristics: {
-      a: "Assurance dommages pour tous les dommages par collision, chocs, vol ou rayures",
+      a: "Assurance dommages pour tous les dommages par collision, chocs, vol ou rayures à l'intérieur et à l'extérieur du véhicule.",
       b: "Protection pneus et bris de glace",
     },
   },
   {
-    id: 1,
+    id: 11,
     title: "Assurance basic",
     price: 10,
     franchise: "Franchise: jusqu'à 2 500€",
@@ -51,7 +51,7 @@ export const protections = [
     },
   },
   {
-    id: 2,
+    id: 12,
     title: "Assurance Semi-Premium",
     price: 30,
     franchise: "Franchise: jusqu'à 1 500€",
@@ -61,7 +61,7 @@ export const protections = [
     },
   },
   {
-    id: 3,
+    id: 13,
     title: "Assurance Premium",
     price: 35,
     franchise: "Aucune franchise",
@@ -74,7 +74,7 @@ export const protections = [
 
 export const optionsData = [
   {
-    id: 0,
+    id: 20,
     title: "Conducteur supplémentaire",
     price: 12,
     priceInfos: "jour",
@@ -82,7 +82,7 @@ export const optionsData = [
       "Partagez le volant avec un conducteur supplémentaire. Vous avez la possibilité d'ajouter un seul conducteur supplémentaire.",
   },
   {
-    id: 1,
+    id: 21,
     title: "Sangle",
     price: 6,
     priceInfos: "jeu de sangles",
@@ -90,7 +90,7 @@ export const optionsData = [
       "Nous vous fournissons des sangles pour sécuriser votre chargement.",
   },
   {
-    id: 2,
+    id: 22,
     title: "Diable",
     price: 17,
     priceInfos: "jour",
@@ -98,7 +98,7 @@ export const optionsData = [
       "Nous vous fournissons 2 diables pour vous aider à charger votre location.",
   },
   {
-    id: 3,
+    id: 23,
     title: "Protection intérieure",
     price: 8,
     priceInfos: "jour",
@@ -107,7 +107,7 @@ export const optionsData = [
   },
 
   {
-    id: 4,
+    id: 24,
     title: "Système de navigation",
     price: 20,
     priceInfos: "jour",
@@ -115,7 +115,7 @@ export const optionsData = [
       "Profitez d'un guidage mains libres et roulez en toute sécurité.",
   },
   {
-    id: 5,
+    id: 25,
     title: "Couverture à l'étranger",
     price: 18,
     priceInfos: "une fois",
@@ -123,14 +123,14 @@ export const optionsData = [
       "Conduisez votre véhicule en dehors des frontières françaises.",
   },
   {
-    id: 6,
+    id: 26,
     title: "Chaînes neige / Chaussettes",
     price: 14,
     priceInfos: "jour",
     description: "Roulez en toute sécurité sur la neige et la glace.",
   },
   {
-    id: 7,
+    id: 27,
     title: "Protection pneux et vitres",
     price: 5,
     priceInfos: "jour",
@@ -138,7 +138,7 @@ export const optionsData = [
       "Vous ne serez pas tenu responsable en cas de vitres ou pneus endommagés.",
   },
   {
-    id: 8,
+    id: 28,
     title: "Ravitaillement / Recharge",
     price: 25,
     priceInfos: "une fois",

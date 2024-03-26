@@ -113,14 +113,14 @@ export default function RentalInfos() {
         {isRecapVisible ? (
           <button
             onClick={() => setIsRecapVisible(!isRecapVisible)}
-            className="border border-solid border-black rounded-lg p-2"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
           >
             Masquer le récapitulatif de la réservation
           </button>
         ) : (
           <button
             onClick={() => setIsRecapVisible(!isRecapVisible)}
-            className="border border-solid border-black rounded-lg p-2"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
           >
             Afficher le récapitulatif de la réservation
           </button>
@@ -144,14 +144,14 @@ export default function RentalInfos() {
         {isFormVisible ? (
           <button
             onClick={() => setIsFormVisible(!isFormVisible)}
-            className="border border-solid border-black rounded-lg p-2"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
           >
             Masquer le formulaire
           </button>
         ) : (
           <button
             onClick={() => setIsFormVisible(!isFormVisible)}
-            className="border border-solid border-black rounded-lg p-2"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
           >
             Afficher le formulaire
           </button>
@@ -178,7 +178,7 @@ export default function RentalInfos() {
       </div>
 
       <div className=" grid grid-cols-12 col-span-12 mt-5">
-        <button className="border border-solid border-black rounded-lg p-2 col-span-3 col-start-10 hover:bg-green-500 hover:text-white hover:scale-105">
+        <button className="border border-solid border-black rounded-lg p-2 col-span-3 col-start-10 hover:bg-violet-600 hover:text-white hover:scale-105 all-transition">
           Confirmer la réservation
         </button>
       </div>

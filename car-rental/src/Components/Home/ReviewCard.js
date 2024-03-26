@@ -46,12 +46,9 @@ export default function ReviewCard() {
   }, [count]);
 
   return (
-    <div className="card border-solid border-2 border-black rounded flex flex-col p-3 mb-5">
+    <div className="card flex flex-col p-5 my-10 shadow shadow-lg shadow-slate-500 rounded-lg border-slate-600">
       <h2 className="text-4xl font-normal pb-6">Ce que pensent nos clients</h2>
-      <div
-        className=" border-solid border-2 border-black rounded p-3"
-        id="review-card"
-      >
+      <div className="  p-3" id="review-card">
         <div className="flex flex-col items-center mb-3 ">
           <img
             src={review.photo}

@@ -32,6 +32,136 @@ export default function CarCardRental({
     returnLocation: returnLocation,
   });
 
+  const CardActive = (
+    <div
+      className="p-3 mb-3 border-solid  rounded-xl shadow-lg
+    bg-gradient-to-br from-slate-500 via-slate-750  to-slate-250 hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500  hover:transition-all "
+    >
+      <div className="mb-3">
+        <h2 className="text-xl font-semibold text-white">{name}</h2>
+        <h3 className="text-xs">{category} | ou similaire</h3>
+      </div>
+
+      <div className="grid grid-cols-11">
+        <div className=" flex items-center justify-center col-span-3 col-start-0 border-solid border-2 border-black rounded-full p-2 gap-1">
+          <img className="size-10" src={user}></img>
+          <p>{passenger}</p>
+        </div>
+        <div className="flex items-center justify-center col-span-3 col-start-5 border-solid border-2 border-black rounded-full p-2">
+          {engine == "Electrique" ? (
+            <img className="size-10" src={bolt}></img>
+          ) : (
+            <img className="size-10" src={gas}></img>
+          )}
+        </div>
+        <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
+          <p>{gearbox}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row items-center justify-between">
+        <div className="">
+          <img className="" src={image}></img>
+        </div>
+        <div className=" flex flex-col text-lg font-semibold rounded p-2">
+          <p className="text-black">Inclus 200kms</p>
+          <div className="flex flex-row items-end">
+            <p className="text-4xl text-black">{price}</p>
+            <p className="text-black"> €/jour</p>
+          </div>
+          <button
+            id={id}
+            className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-red-600  hover:text-white transition-all"
+            onClick={click}
+          >
+            Fermer
+          </button>
+        </div>
+      </div>
+      <div className="flex flex-row justify-between items-center mt-5">
+        <div>
+          <h2 className="text-xl font-semibold">Récapitulatif:</h2>
+          <p>
+            Pour la période du:{" "}
+            <span className="text-lg font-semibold">
+              {formatedDate(pickupDate)}
+            </span>{" "}
+            au:{" "}
+            <span className="text-lg font-semibold">
+              {" "}
+              {formatedDate(returnDate)}
+            </span>
+          </p>
+          <p>
+            Total: <span className="text-lg font-semibold">{price}€</span>
+            /jour, pour <span>{rentalDuration} jour(s)</span> soit:{" "}
+            <span className="text-4xl font-bold text-violet-600">
+              {price * rentalDuration}€
+            </span>
+          </p>
+        </div>
+        <div className="text-lg font-semibold p-3">
+          <button
+            onClick={rentalSelected}
+            className="border-solid border-2 border-black rounded-full  hover:bg-violet-600 hover:text-white transition-all p-2"
+          >
+            Confirmer
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const CardInactive = (
+    <div
+      className="p-3 mb-3 border-solid  rounded-xl shadow-lg
+    bg-gradient-to-br from-slate-500 via-slate-750  to-slate-250 hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500 transition-all "
+    >
+      <div className="mb-3">
+        <h2 className="text-xl font-semibold text-white">{name}</h2>
+        <h3 className="text-xs">{category} | ou similaire</h3>
+      </div>
+
+      <div className="grid grid-cols-11">
+        <div className=" flex items-center justify-center col-span-3 col-start-0 border-solid border-2 border-black rounded-full p-2 gap-1">
+          <img className="size-10" src={user}></img>
+          <p>{passenger}</p>
+        </div>
+        <div className="flex items-center justify-center col-span-3 col-start-5 border-solid border-2 border-black rounded-full p-2">
+          {engine == "Electrique" ? (
+            <img className="size-10" src={bolt}></img>
+          ) : (
+            <img className="size-10" src={gas}></img>
+          )}
+        </div>
+        <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
+          <p>{gearbox}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row items-center justify-between">
+        <div className="">
+          <img className="" src={image}></img>
+        </div>
+
+        <div className=" flex flex-col text-lg font-semibold rounded p-2">
+          <p className="text-black">Inclus 200kms</p>
+          <div className="flex flex-row items-end">
+            <p className="text-4xl text-black">{price}</p>
+            <p className="text-black"> €/jour</p>
+          </div>
+          <button
+            id={id}
+            className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-violet-600 hover:text-white transition-all"
+            onClick={click}
+          >
+            Choisir
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   function click() {
     setIsVisible(!isVisible);
   }
@@ -63,135 +193,5 @@ export default function CarCardRental({
     navigate("/options", { state: { selectedVehicule } });
   }
 
-  return (
-    <div>
-      {isVisible ? (
-        <div
-          className="p-3 mb-3 border-solid  rounded-xl shadow-lg
-          bg-gradient-to-br from-slate-500 via-slate-750  to-slate-250 hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500  hover:transition-all "
-        >
-          <div className="mb-3">
-            <h2 className="text-xl font-semibold text-white">{name}</h2>
-            <h3 className="text-xs">{category} | ou similaire</h3>
-          </div>
-
-          <div className="grid grid-cols-12">
-            <div className=" flex items-center justify-center col-span-3 col-start-0 border-solid border-2 border-black rounded-full p-2 gap-1">
-              <img className="size-10" src={user}></img>
-              <p>{passenger}</p>
-            </div>
-            <div className="flex items-center justify-center col-span-3 col-start-5 border-solid border-2 border-black rounded-full p-2">
-              {engine == "Electrique" ? (
-                <img className="size-10" src={bolt}></img>
-              ) : (
-                <img className="size-10" src={gas}></img>
-              )}
-            </div>
-            <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
-              <p>{gearbox}</p>
-            </div>
-          </div>
-
-          <div className="flex flex-row items-center justify-between">
-            <div className="">
-              <img className="" src={image}></img>
-            </div>
-            <div className=" flex flex-col text-lg font-semibold rounded p-2">
-              <p className="text-black">Inclus 200kms</p>
-              <div className="flex flex-row items-end">
-                <p className="text-4xl text-black">{price}</p>
-                <p className="text-black"> €/jour</p>
-              </div>
-              <button
-                id={id}
-                className="mt-3 border-solid border-2 border-black rounded-full hover:bg-slate-500  hover:text-white hover:transition-all"
-                onClick={click}
-              >
-                Fermer
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-row justify-between items-center mt-5">
-            <div>
-              <h2 className="text-xl font-semibold">Récapitulatif:</h2>
-              <p>
-                Pour la période du:{" "}
-                <span className="text-lg font-semibold">
-                  {formatedDate(pickupDate)}
-                </span>{" "}
-                au:{" "}
-                <span className="text-lg font-semibold">
-                  {" "}
-                  {formatedDate(returnDate)}
-                </span>
-              </p>
-              <p>
-                Total: <span className="text-lg font-semibold">{price}€</span>
-                /jour, pour <span>{rentalDuration} jour(s)</span> soit:{" "}
-                <span className="text-3xl font-bold">
-                  {price * rentalDuration}€
-                </span>
-              </p>
-            </div>
-            <div className="text-lg font-semibold p-3">
-              <button
-                onClick={rentalSelected}
-                className="border-solid border-2 border-black rounded-full bg-sky-700 hover:bg-sky-900 text-white hover:transition-all p-2"
-              >
-                Confirmer
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div
-          className="p-3 mb-3 border-solid  rounded-xl shadow-lg
-            bg-gradient-to-br from-slate-500 via-slate-750  to-slate-250 hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500  hover:transition-all "
-        >
-          <div className="mb-3">
-            <h2 className="text-xl font-semibold text-white">{name}</h2>
-            <h3 className="text-xs">{category} | ou similaire</h3>
-          </div>
-
-          <div className="grid grid-cols-12">
-            <div className=" flex items-center justify-center col-span-3 col-start-0 border-solid border-2 border-black rounded-full p-2 gap-1">
-              <img className="size-10" src={user}></img>
-              <p>{passenger}</p>
-            </div>
-            <div className="flex items-center justify-center col-span-3 col-start-5 border-solid border-2 border-black rounded-full p-2">
-              {engine == "Electrique" ? (
-                <img className="size-10" src={bolt}></img>
-              ) : (
-                <img className="size-10" src={gas}></img>
-              )}
-            </div>
-            <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
-              <p>{gearbox}</p>
-            </div>
-          </div>
-
-          <div className="flex flex-row items-center justify-between">
-            <div className="">
-              <img className="" src={image}></img>
-            </div>
-
-            <div className=" flex flex-col text-lg font-semibold rounded p-2">
-              <p className="text-black">Inclus 200kms</p>
-              <div className="flex flex-row items-end">
-                <p className="text-4xl text-black">{price}</p>
-                <p className="text-black"> €/jour</p>
-              </div>
-              <button
-                id={id}
-                className="mt-3 border-solid border-2 border-black rounded-full hover:bg-slate-500  hover:text-white hover:transition-all"
-                onClick={click}
-              >
-                Choisir
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return <div>{isVisible ? CardActive : CardInactive}</div>;
 }
