@@ -65,9 +65,9 @@ export default function RentalResults() {
 
   return (
     <div className="p-2 ">
-      <div className="border border-2 border-black shadow shadow-lg shadow-slate-500 rounded-lg p-2 my-5">
+      <div className="border border-2  shadow shadow-lg shadow-slate-400 rounded-lg p-2 my-5">
         <div
-          className="flex flex-row items-center justify-between  p-3 w-1/2 font-medium text-sm mb-5"
+          className="flex flex-row items-center justify-between  md:p-3 md:w-1/2 font-medium text-sm mb-5"
           id="search-recap"
         >
           <div>
@@ -82,7 +82,7 @@ export default function RentalResults() {
           <div>
             <Link
               to="/"
-              className="flex flex-row gap-2 items-center border border-2 border-black rounded-full p-3 hover:bg-slate-300 transition-all "
+              className="flex flex-row gap-2 items-center border border-1 border-slate-400 rounded-full p-3 text-white bg-celBlue100 hover:bg-celBlue200 transition-all "
             >
               <img src={glass} className="size-4"></img>
               Modifier la recherche
@@ -92,7 +92,7 @@ export default function RentalResults() {
         <div className="grid grid-cols-12 gap-3 mb-5">
           <select
             onChange={(e) => handleGearboxChange(e)}
-            className="col-span-3 rounded-full"
+            className="col-span-12 md:col-span-3 rounded-full"
             name="gearbox"
           >
             <option value="All gearbox">Filtrer par boîte de vitesses</option>
@@ -106,7 +106,7 @@ export default function RentalResults() {
           </select>
           <select
             onChange={(e) => handleEngineChange(e)}
-            className="col-span-3 rounded-full"
+            className="col-span-12 md:col-span-3 rounded-full"
             name="engine"
           >
             <option value="All engine">Filtrer par type de moteur</option>
@@ -130,17 +130,19 @@ export default function RentalResults() {
       </div>
 
       <div className="">
-        <h2 className="mb-2 text-xl font-semibold">NOS VOITURES</h2>
+        <h2 className="mb-7 text-4xl font-semibold text-celBlue100">
+          NOS VOITURES
+        </h2>
 
         {searchedData.vehiculeType === "voiture"
           ? cars.map((item) => {
               if (
-                (item.gearbox == filteredData.gearbox &&
-                  filteredData.engine == "All engine") ||
-                (filteredData.engine == item.engine &&
-                  filteredData.gearbox == "All gearbox") ||
-                (filteredData.engine == item.engine &&
-                  filteredData.gearbox == item.gearbox)
+                (item.gearbox === filteredData.gearbox &&
+                  filteredData.engine === "All engine") ||
+                (filteredData.engine === item.engine &&
+                  filteredData.gearbox === "All gearbox") ||
+                (filteredData.engine === item.engine &&
+                  filteredData.gearbox === item.gearbox)
               ) {
                 return (
                   <CarCardRental
@@ -163,8 +165,8 @@ export default function RentalResults() {
                   />
                 );
               } else if (
-                filteredData.engine == "All engine" &&
-                filteredData.gearbox == "All gearbox"
+                filteredData.engine === "All engine" &&
+                filteredData.gearbox === "All gearbox"
               ) {
                 return (
                   <CarCardRental
@@ -186,17 +188,17 @@ export default function RentalResults() {
                     returnLocation={searchedData.returnLocation}
                   />
                 );
-              } else if (filteredData.engine == "Diesel") {
+              } else if (filteredData.engine === "Diesel") {
               }
             })
           : utilitaires.map((item) => {
               if (
-                (item.gearbox == filteredData.gearbox &&
-                  filteredData.engine == "All engine") ||
-                (filteredData.engine == item.engine &&
-                  filteredData.gearbox == "All gearbox") ||
-                (filteredData.engine == item.engine &&
-                  filteredData.gearbox == item.gearbox)
+                (item.gearbox === filteredData.gearbox &&
+                  filteredData.engine === "All engine") ||
+                (filteredData.engine === item.engine &&
+                  filteredData.gearbox === "All gearbox") ||
+                (filteredData.engine === item.engine &&
+                  filteredData.gearbox === item.gearbox)
               ) {
                 return (
                   <CarCardRental
@@ -217,8 +219,8 @@ export default function RentalResults() {
                   />
                 );
               } else if (
-                filteredData.engine == "All engine" &&
-                filteredData.gearbox == "All gearbox"
+                filteredData.engine === "All engine" &&
+                filteredData.gearbox === "All gearbox"
               ) {
                 return (
                   <CarCardRental

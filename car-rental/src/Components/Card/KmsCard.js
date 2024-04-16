@@ -20,7 +20,7 @@ export default function KmsCard({
   }
 
   const activeCard = (
-    <div className="border border-solid border-black rounded-lg p-2 col-span-6  hover:cursor-pointer  shadow-lg shadow-black">
+    <div className="border border-1 border-slate-400 rounded-lg p-2 col-span-6  hover:cursor-pointer  shadow-lg shadow-slate-400">
       <div key={title} className="grid grid-cols-12 ">
         <div className="col-span-12 mb-4">
           <h2 className="col-span-12 text-3xl  font-bold">{title}</h2>
@@ -50,16 +50,16 @@ export default function KmsCard({
 
             <p>
               {totalOptionPrice == 0 ? (
-                <span className="text-2xl font-bold">
+                <span className="text-3xl font-bold">
                   Inclus dans la location
                 </span>
               ) : (
                 <>
                   <span>Soit </span>
-                  <span className="text-2xl font-bold">
-                    {totalOptionPrice}
+                  <span className="text-3xl font-bold">
+                    {totalOptionPrice}€
                   </span>{" "}
-                  <span>€ pour la durée de la location</span>
+                  <span> pour la durée de la location</span>
                 </>
               )}
             </p>
@@ -67,7 +67,7 @@ export default function KmsCard({
 
           <div className="flex flex-row justify-end ">
             <button
-              className="border-2 border-solid rounded-full border-black p-2 bg-violet-600 text-white w-32"
+              className=" rounded-full border-black p-2 bg-emerald-500 text-white w-32"
               onClick={onSelected}
             >
               Option ajoutée
@@ -79,7 +79,7 @@ export default function KmsCard({
   );
 
   const inactiveCard = (
-    <div className="bg-slate-500 border border-solid border-black rounded-lg p-2 col-span-6 ">
+    <div className=" rounded-lg p-2 col-span-6 bg-slate-400 hover:cursor-pointer hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-celBlue100">
       <div key={title} className="grid grid-cols-12 ">
         <div className="col-span-12 mb-4">
           <h2 className="col-span-12 text-3xl  font-bold">{title}</h2>
@@ -115,10 +115,10 @@ export default function KmsCard({
               ) : (
                 <>
                   <span>Soit </span>
-                  <span className="text-2xl font-bold">
-                    {totalOptionPrice}
+                  <span className="text-2xl font-bold text-celBlue100">
+                    {totalOptionPrice}€
                   </span>{" "}
-                  <span>€ pour la durée de la location</span>
+                  <span> pour la durée de la location</span>
                 </>
               )}
             </p>
@@ -126,7 +126,7 @@ export default function KmsCard({
 
           <div className="flex flex-row justify-end ">
             <button
-              className="border-2 border-solid rounded-full border-black p-2 hover:bg-violet-600 hover:text-white w-32 all-transition"
+              className="border-2 border-solid rounded-full border-black p-2 hover:bg-celBlue100 hover:text-white w-32 all-transition"
               onClick={onSelected}
             >
               Ajouter
@@ -138,6 +138,8 @@ export default function KmsCard({
   );
 
   return (
-    <div className="col-span-6">{isActive ? activeCard : inactiveCard}</div>
+    <div className="col-span-12 md:col-span-6">
+      {isActive ? activeCard : inactiveCard}
+    </div>
   );
 }

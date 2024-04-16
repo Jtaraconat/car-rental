@@ -5,8 +5,8 @@ import twitter from "../Assets/footer/twitter.png";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col justify-between bg-slate-500">
-      <div className="my-5 text-lg">
+    <div className="flex flex-col justify-between bg-onyx p-2 text-white text-center">
+      <div className="my-5 md:text-lg">
         <ul className=" flex flex-row justify-around">
           <a>Nos voitures</a>
           <a>Avis de nos clients</a>

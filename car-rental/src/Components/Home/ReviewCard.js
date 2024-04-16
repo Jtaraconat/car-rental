@@ -14,27 +14,6 @@ export default function ReviewCard() {
 
   useEffect(() => {
     setReview(reviews[count]);
-    {
-      /* ANIMATION reviewCard undefined at the beginning
-  
-   let reviewCard;
-   
-    const interval = setInterval(() => {
-      reviewCard.classList.remove("animate-pulse");
-      if (count < reviews.length - 1) {
-        setCount(count + 1);
-      } else {
-        setCount(0);
-      }
-      setTimeout(() => {
-        reviewCard = document.getElementById("review-card");
-        reviewCard.classList.add("animate-pulse");
-      }, 4000);
-    }, 5000);
-        return () => clearInterval(interval);
-  */
-    }
-
     const interval = setInterval(() => {
       if (count < reviews.length - 1) {
         setCount(count + 1);
@@ -46,8 +25,10 @@ export default function ReviewCard() {
   }, [count]);
 
   return (
-    <div className="card flex flex-col p-5 my-10 shadow shadow-lg shadow-slate-500 rounded-lg border-slate-600">
-      <h2 className="text-4xl font-normal pb-6">Ce que pensent nos clients</h2>
+    <div className="card flex flex-col p-5 my-10 shadow shadow-lg shadow-slate-400 rounded-lg border-slate-600">
+      <h2 className="text-center text-4xl font-normal pb-6 text-celBlue100">
+        Ce que pensent nos clients
+      </h2>
       <div className="  p-3" id="review-card">
         <div className="flex flex-col items-center mb-3 ">
           <img

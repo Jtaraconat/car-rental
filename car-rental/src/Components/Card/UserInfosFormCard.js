@@ -2,14 +2,6 @@ import React, { useState } from "react";
 import Input from "../../Components/Input";
 
 export default function UserInfosFormCard({
-  firstname,
-  lastname,
-  adress1,
-  adress2,
-  postalcode,
-  city,
-  email,
-  phoneNumber,
   handleChange,
   handleMail,
   handlePhoneNumber,
@@ -19,8 +11,8 @@ export default function UserInfosFormCard({
   postalCodeErrorMessage,
 }) {
   return (
-    <div className="grid grid-cols-12 mt-2 border border-solid border-black p-2 rounded-lg shadow shadow-black">
-      <form className=" grid grid-cols-12 col-span-12 gap-3 text-violet-600">
+    <div className="grid grid-cols-12 mt-2 border border-solid border-slate-400 p-2 rounded-lg shadow shadow-slate-400">
+      <form className=" grid grid-cols-12 col-span-12 gap-3 text-celBlue100">
         <Input
           name="Nom"
           label="Nom"

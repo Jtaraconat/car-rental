@@ -18,7 +18,7 @@ export default function CarSection() {
   }, [count, carFilter]);
 
   function nextClick() {
-    if (carFilter === "vehicule" && count < cars.length - 1) {
+    if (carFilter === "véhicule" && count < cars.length - 1) {
       setCount(count + 1);
     } else if (carFilter === "utilitaire" && count < utilitaires.length - 1) {
       setCount(count + 1);
@@ -43,8 +43,8 @@ export default function CarSection() {
   }
 
   return (
-    <div className=" my-10 p-5 shadow shadow-lg shadow-slate-600 border-slate-600 bg-gradient-to-br from-white from-25% via-slate-200 via-50% to-slate-600 rounded-lg">
-      <h2 className="text-4xl mb-3 text-violet-600">
+    <div className=" my-10 p-5 shadow shadow-lg shadow-slate-400 border-slate-600  rounded-lg bg-gradient-to-br from-ghostWhite to-sky-500 ">
+      <h2 className="text-2xl md:text-4xl mb-3 text-celBlue100">
         Nos voitures et utilitaires
       </h2>
       <div className="grid grid-cols-12 gap-2 ">
@@ -53,7 +53,7 @@ export default function CarSection() {
           onClick={handleFilter}
           buttonLabel={"Véhicule"}
           classname={
-            "bg-white rounded-lg border border-solid border-2 text-slate-600 border-slate-600 hover:bg-violet-600 hover:text-white  p-5 col-span-2 transition-all col-start-5 "
+            "bg-transparent rounded-lg border border-solid border-1 text-slate-600 border-slate-600 hover:bg-celBlue100 hover:text-white p-3 col-span-5 md:col-span-2 transition-all md:col-start-5 text-lg"
           }
         />
 
@@ -62,18 +62,18 @@ export default function CarSection() {
           onClick={handleFilter}
           buttonLabel={"Utilitaire"}
           classname={
-            "bg-white rounded-lg border border-solid border-2 text-slate-600 border-slate-600 hover:bg-violet-600 hover:text-white  p-5 col-span-2 transition-all col-start-7"
+            "bg-transparent rounded-lg border border-solid border-1 text-slate-600 border-slate-600 hover:bg-celBlue100 hover:text-white  p-5 col-span-5 md:col-span-2 transition-all md:col-start-7 col-start-8 text-lg"
           }
         />
       </div>
 
-      <div className="grid grid-cols-12">
-        <div className="self-center col-span-2">
-          <SliderButton onClick={previousClick} buttonLabel={"Précédent"} />
+      <div className="grid grid-cols-12 mt-7">
+        <div className="self-center col-span-12 md:col-span-2">
+          <SliderButton onClick={previousClick} buttonLabel={"Précédente"} />
         </div>
 
-        <div className="col-span-8">
-          {carFilter === "vehicule" ? (
+        <div className="col-span-12 md:col-span-8">
+          {carFilter === "véhicule" ? (
             <CarCard
               image={car.image}
               name={car.name}
@@ -94,8 +94,8 @@ export default function CarSection() {
           )}
         </div>
 
-        <div className="self-center col-span-2">
-          <SliderButton onClick={nextClick} buttonLabel={"Suivant"} />
+        <div className="self-center col-span-12 md:col-span-2">
+          <SliderButton onClick={nextClick} buttonLabel={"Suivante"} />
         </div>
       </div>
     </div>

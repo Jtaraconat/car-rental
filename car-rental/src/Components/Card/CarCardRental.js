@@ -35,67 +35,75 @@ export default function CarCardRental({
   const CardActive = (
     <div
       className="p-3 mb-3 border-solid  rounded-xl shadow-lg
-    bg-gradient-to-br from-slate-500 via-slate-750  to-slate-250 hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500  hover:transition-all "
+      bg-gradient-to-br from-ghostWhite from-30% to-celBlue100 hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-slate-500  hover:transition-all shadow shadow-lg shadow-slate-400"
     >
       <div className="mb-3">
-        <h2 className="text-xl font-semibold text-white">{name}</h2>
+        <h2 className="text-2xl font-semibold text-celBlue100">{name}</h2>
         <h3 className="text-xs">{category} | ou similaire</h3>
       </div>
 
       <div className="grid grid-cols-11">
         <div className=" flex items-center justify-center col-span-3 col-start-0 border-solid border-2 border-black rounded-full p-2 gap-1">
-          <img className="size-10" src={user}></img>
+          <img className="size-10" src={user} alt="user"></img>
           <p>{passenger}</p>
         </div>
         <div className="flex items-center justify-center col-span-3 col-start-5 border-solid border-2 border-black rounded-full p-2">
           {engine == "Electrique" ? (
-            <img className="size-10" src={bolt}></img>
+            <img className="size-10" src={bolt} alt="bolt"></img>
           ) : (
-            <img className="size-10" src={gas}></img>
+            <img className="size-10" src={gas} alt="gas"></img>
           )}
         </div>
         <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
-          <p>{gearbox}</p>
+          <p className="text-sm md:text-lg">{gearbox}</p>
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between">
-        <div className="">
-          <img className="" src={image}></img>
+      <div className="flex flex-col md:grid grid-cols-12 items-center justify-between ">
+        <div className="md:col-span-9">
+          <img className="" src={image} alt="car"></img>
         </div>
-        <div className=" flex flex-col text-lg font-semibold rounded p-2">
-          <p className="text-black">Inclus 200kms</p>
-          <div className="flex flex-row items-end">
+        <div className="md:col-span-3 grid grid-cols-12 md:flex flex-col text-lg font-semibold rounded p-2 items-center">
+          <div className="col-span-4">
+            <p className="text-black text-center">Inclus 200kms</p>
+          </div>
+
+          <div className="col-span-4 flex flex-row justify-center items-end">
             <p className="text-4xl text-black">{price}</p>
             <p className="text-black"> €/jour</p>
           </div>
-          <button
-            id={id}
-            className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-red-600  hover:text-white transition-all"
-            onClick={click}
-          >
-            Fermer
-          </button>
+          <div className="col-span-4 flex flex-row justify-center ">
+            <button
+              id={id}
+              className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-bitterRed100  hover:text-white transition-all "
+              onClick={click}
+            >
+              Fermer
+            </button>
+          </div>
         </div>
       </div>
       <div className="flex flex-row justify-between items-center mt-5">
         <div>
           <h2 className="text-xl font-semibold">Récapitulatif:</h2>
+          <div className="my-3 md:flex flex-row gap-3 items-center">
+            <p> Pour la période:</p>
+            <p className="text-lg font-semibold">
+              du: {formatedDate(pickupDate)}
+            </p>
+
+            <p className="text-lg font-semibold">
+              au: {formatedDate(returnDate)}
+            </p>
+          </div>
+
           <p>
-            Pour la période du:{" "}
-            <span className="text-lg font-semibold">
-              {formatedDate(pickupDate)}
-            </span>{" "}
-            au:{" "}
-            <span className="text-lg font-semibold">
-              {" "}
-              {formatedDate(returnDate)}
+            Total:{" "}
+            <span className="text-lg font-semibold text-celBlue100">
+              {price}€
             </span>
-          </p>
-          <p>
-            Total: <span className="text-lg font-semibold">{price}€</span>
             /jour, pour <span>{rentalDuration} jour(s)</span> soit:{" "}
-            <span className="text-4xl font-bold text-violet-600">
+            <span className="text-4xl font-bold text-celBlue100">
               {price * rentalDuration}€
             </span>
           </p>
@@ -103,7 +111,7 @@ export default function CarCardRental({
         <div className="text-lg font-semibold p-3">
           <button
             onClick={rentalSelected}
-            className="border-solid border-2 border-black rounded-full  hover:bg-violet-600 hover:text-white transition-all p-2"
+            className="border-solid border-2 border-black rounded-full  hover:bg-celBlue100 hover:text-white transition-all p-2"
           >
             Confirmer
           </button>
@@ -115,33 +123,33 @@ export default function CarCardRental({
   const CardInactive = (
     <div
       className="p-3 mb-3 border-solid  rounded-xl shadow-lg
-    bg-gradient-to-br from-slate-500 via-slate-750  to-slate-250 hover:outline hover:outline-4 hover:outline-offset-4 hover:outline-slate-500 transition-all "
+      bg-gradient-to-br from-ghostWhite from-30% to-celBlue100 to-90% hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-slate-500 transition-all shadow shadow-lg shadow-slate-400"
     >
       <div className="mb-3">
-        <h2 className="text-xl font-semibold text-white">{name}</h2>
+        <h2 className="text-2xl font-semibold text-celBlue100">{name}</h2>
         <h3 className="text-xs">{category} | ou similaire</h3>
       </div>
 
-      <div className="grid grid-cols-11">
+      <div className=" grid grid-cols-11">
         <div className=" flex items-center justify-center col-span-3 col-start-0 border-solid border-2 border-black rounded-full p-2 gap-1">
-          <img className="size-10" src={user}></img>
+          <img className="size-10" src={user} alt="user"></img>
           <p>{passenger}</p>
         </div>
         <div className="flex items-center justify-center col-span-3 col-start-5 border-solid border-2 border-black rounded-full p-2">
           {engine == "Electrique" ? (
-            <img className="size-10" src={bolt}></img>
+            <img className="size-10" src={bolt} alt="bolt"></img>
           ) : (
-            <img className="size-10" src={gas}></img>
+            <img className="size-10" src={gas} alt="gas"></img>
           )}
         </div>
         <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
-          <p>{gearbox}</p>
+          <p className="text-sm md:text-lg">{gearbox}</p>
         </div>
       </div>
 
       <div className="flex flex-row items-center justify-between">
         <div className="">
-          <img className="" src={image}></img>
+          <img className="" src={image} alt="car"></img>
         </div>
 
         <div className=" flex flex-col text-lg font-semibold rounded p-2">
@@ -152,7 +160,7 @@ export default function CarCardRental({
           </div>
           <button
             id={id}
-            className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-violet-600 hover:text-white transition-all"
+            className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-celBlue100 hover:text-white transition-all"
             onClick={click}
           >
             Choisir

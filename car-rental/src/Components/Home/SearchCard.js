@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SearchCard() {
-  const [isVisible, setIsVisible] = useState(false);
   const [dateStr, setDateStr] = useState("");
   const [searchData, setSearchData] = useState({
     pickupLocation: "",
-    returnLocation: "",
     pickupDate: "",
     returnDate: "",
     pickupTimestamp: 0,
@@ -38,12 +36,6 @@ export default function SearchCard() {
   function getPickupLocation(e) {
     e.preventDefault();
     setSearchData({ ...searchData, pickupLocation: e.target.value });
-  }
-
-  function getReturnLocation(e) {
-    e.preventDefault();
-    isVisible ? setIsVisible(false) : setIsVisible(!isVisible);
-    setSearchData({ ...searchData, returnLocation: e.target.value });
   }
 
   function getPickupDate(e) {
@@ -83,10 +75,10 @@ export default function SearchCard() {
   }
 
   return (
-    <div className="border-solid border-2 border-black rounded-lg my-10 p-5 shadow-lg shadow-black/50 ">
+    <div className="border-solid border-2 rounded-lg my-10 p-5 shadow-lg shadow-ghostwhite ">
       <div className="mt-3 mb-3">
         <form className="flex flex-col w-full justify-evenly">
-          <div className="grid grid-cols-12 mt-3 mb-3">
+          <div className="flex flex-row justify-around md:grid md:grid-cols-12 mt-3 mb-3">
             <div className="col-span-2">
               <input
                 name="vehiculeType"
@@ -110,20 +102,20 @@ export default function SearchCard() {
               <label htmlFor="utilitaire">Utilitaire</label>
             </div>
           </div>
-          <div className="location grid grid-cols-12 gap-3 items-end mb-3">
+          <div className="location flex flex-col md:grid md:grid-cols-12 gap-3 items-end mb-3">
             <div className="location-input col-span-8">
               <label htmlFor="pickup-location">Retrait et retour</label>
               <input
                 id="pickup-location"
                 name="pickup-location"
                 className="w-full rounded"
-                placeholder="Rechercher votre ville de départ"
+                placeholder="Rechercher votre ville"
                 onChange={getPickupLocation}
               ></input>
             </div>
           </div>
-          <div className="date-selector grid grid-cols-12 gap-3 items-end">
-            <div className="flex flex-col col-span-4">
+          <div className="date-selector flex flex-col md:grid md:grid-cols-12 gap-3 items-end">
+            <div className="flex flex-col w-full md:col-span-4">
               <label htmlFor="startDate" className="pr-2">
                 Date de départ
               </label>
@@ -136,7 +128,7 @@ export default function SearchCard() {
                 min={dateStr}
               ></input>
             </div>
-            <div className="flex flex-col col-span-4">
+            <div className="flex flex-col w-full md:col-span-4">
               <label htmlFor="returnDate" className="pr-2">
                 Date de retour
               </label>
@@ -153,9 +145,9 @@ export default function SearchCard() {
         </form>
       </div>
 
-      <div className="mt-3 mb-3 flex justify-end">
+      <div className="mt-3 mb-3 flex justify-center md:justify-end">
         <Link
-          className="bg-white rounded-lg border border-solid border-2 text-slate-600 border-slate-600 hover:bg-violet-600 hover:text-white p-5
+          className="bg-celBlue100 rounded-lg text-slate-600  hover:bg-celBlue200 text-white p-5
           transition-all "
           onClick={searchRental}
         >

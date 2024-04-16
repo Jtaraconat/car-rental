@@ -67,7 +67,7 @@ export default function RentalInfos() {
 
   function handleMail(e) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(e.target.value) === true && e.target.value != "") {
+    if (emailRegex.test(e.target.value) === true && e.target.value !== "") {
       setMailErrorMessage("");
       setUserInfos({ ...userInfos, email: e.target.value });
     } else {
@@ -79,7 +79,7 @@ export default function RentalInfos() {
     const inputRegex = /^\d{10}$/;
     if (
       inputRegex.test(e.target.value) === true &&
-      e.target.value != "" &&
+      e.target.value !== "" &&
       e.target.name === "Numéro de téléphone"
     ) {
       setNumberErrorMessage("");
@@ -95,7 +95,7 @@ export default function RentalInfos() {
     const inputRegex = /^\d{5}$/;
     if (
       inputRegex.test(e.target.value) === true &&
-      e.target.value != "" &&
+      e.target.value !== "" &&
       e.target.name === "Code postal"
     ) {
       setPostalCodeErrorMessage("");
@@ -108,19 +108,19 @@ export default function RentalInfos() {
   }
 
   return (
-    <div className="p-2 grid grids-col-12">
+    <div className="p-2 grid grids-col-12 mt-10">
       <div className="col-span-12">
         {isRecapVisible ? (
           <button
             onClick={() => setIsRecapVisible(!isRecapVisible)}
-            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-celBlue100 hover:text-white all-transition"
           >
             Masquer le récapitulatif de la réservation
           </button>
         ) : (
           <button
             onClick={() => setIsRecapVisible(!isRecapVisible)}
-            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-celBlue100 hover:text-white all-transition"
           >
             Afficher le récapitulatif de la réservation
           </button>
@@ -140,18 +140,18 @@ export default function RentalInfos() {
           />
         ) : null}
       </div>
-      <div className="col-span-12 mt-5">
+      <div className="col-span-12 mt-10">
         {isFormVisible ? (
           <button
             onClick={() => setIsFormVisible(!isFormVisible)}
-            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-celBlue100 hover:text-white all-transition"
           >
             Masquer le formulaire
           </button>
         ) : (
           <button
             onClick={() => setIsFormVisible(!isFormVisible)}
-            className="border border-solid border-black rounded-lg p-2 hover:bg-violet-600 hover:text-white all-transition"
+            className="border border-solid border-black rounded-lg p-2 hover:bg-celBlue100 hover:text-white all-transition"
           >
             Afficher le formulaire
           </button>
@@ -178,7 +178,7 @@ export default function RentalInfos() {
       </div>
 
       <div className=" grid grid-cols-12 col-span-12 mt-5">
-        <button className="border border-solid border-black rounded-lg p-2 col-span-3 col-start-10 hover:bg-violet-600 hover:text-white hover:scale-105 all-transition">
+        <button className="border border-solid border-black rounded-lg p-2 md:col-span-3 md:col-start-10 col-span-7 col-start-6 hover:bg-celBlue100 hover:text-white hover:scale-105 all-transition">
           Confirmer la réservation
         </button>
       </div>
