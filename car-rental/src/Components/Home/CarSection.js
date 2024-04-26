@@ -10,7 +10,7 @@ export default function CarSection() {
   const [car, setCar] = useState("");
   const [utilitaire, setUtilitaire] = useState("");
   const [count, setCount] = useState(0);
-  const [carFilter, setCarFilter] = useState("vehicule");
+  const [carFilter, setCarFilter] = useState("véhicule");
 
   useEffect(() => {
     setCar(cars[count]);

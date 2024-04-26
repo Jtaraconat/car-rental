@@ -75,9 +75,9 @@ export default function SearchCard() {
   }
 
   return (
-    <div className="border-solid border-2 rounded-lg my-10 p-5 shadow-lg shadow-ghostwhite ">
+    <div className="border-solid border-2 rounded-lg mb-10 p-5 shadow-lg shadow-ghostwhite ">
       <div className="mt-3 mb-3">
-        <form className="flex flex-col w-full justify-evenly">
+        <form className="flex flex-col ">
           <div className="flex flex-row justify-around md:grid md:grid-cols-12 mt-3 mb-3">
             <div className="col-span-2">
               <input
@@ -102,7 +102,7 @@ export default function SearchCard() {
               <label htmlFor="utilitaire">Utilitaire</label>
             </div>
           </div>
-          <div className="location flex flex-col md:grid md:grid-cols-12 gap-3 items-end mb-3">
+          <div className="location flex flex-col md:grid md:grid-cols-12 gap-3  mb-3">
             <div className="location-input col-span-8">
               <label htmlFor="pickup-location">Retrait et retour</label>
               <input

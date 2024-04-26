@@ -24,7 +24,6 @@ export default function RentalInfos() {
     optionsArray: location.state.allRentalInfos.optionsArray,
     firstname: "",
   });
-
   const [userInfos, setUserInfos] = useState({
     firstname: "",
     firstname: "",
@@ -36,10 +35,13 @@ export default function RentalInfos() {
     email: "",
     phoneNumber: "",
   });
-
   const [mailErrorMessage, setMailErrorMessage] = useState("");
   const [numberErrorMessage, setNumberErrorMessage] = useState("");
   const [postalCodeErrorMessage, setPostalCodeErrorMessage] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   function handleChange(e) {
     switch (e.target.name) {
@@ -108,7 +110,7 @@ export default function RentalInfos() {
   }
 
   return (
-    <div className="p-2 grid grids-col-12 mt-10">
+    <div className="p-2 grid grids-col-12">
       <div className="col-span-12">
         {isRecapVisible ? (
           <button

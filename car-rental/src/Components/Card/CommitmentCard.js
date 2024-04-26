@@ -4,7 +4,7 @@ import { about } from "../../Utils/About";
 export default function CommitmentCard() {
   return about.map((commit) => {
     return (
-      <div className="my-3 col-span-6 md:col-span-4" key={commit.title}>
+      <div className="col-span-12 md:col-span-4" key={commit.title}>
         <div className="flex flex-row justify-center">
           <img
             src={commit.image}

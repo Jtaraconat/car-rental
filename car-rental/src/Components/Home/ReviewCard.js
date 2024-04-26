@@ -26,7 +26,7 @@ export default function ReviewCard() {
 
   return (
     <div className="card flex flex-col p-5 my-10 shadow shadow-lg shadow-slate-400 rounded-lg border-slate-600">
-      <h2 className="text-center text-4xl font-normal pb-6 text-celBlue100">
+      <h2 className="text-2xl md:text-4xl font-base pb-6 text-celBlue100">
         Ce que pensent nos clients
       </h2>
       <div className="  p-3" id="review-card">

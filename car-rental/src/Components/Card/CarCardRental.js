@@ -55,7 +55,7 @@ export default function CarCardRental({
           )}
         </div>
         <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
-          <p className="text-sm md:text-lg">{gearbox}</p>
+          <p className="text-xs md:text-lg">{gearbox}</p>
         </div>
       </div>
 
@@ -142,29 +142,35 @@ export default function CarCardRental({
             <img className="size-10" src={gas} alt="gas"></img>
           )}
         </div>
-        <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full ">
-          <p className="text-sm md:text-lg">{gearbox}</p>
+        <div className=" flex items-center justify-center col-span-3 col-start-9 border-solid border-2 border-black rounded-full">
+          <p className="text-xs md:text-lg p-2">{gearbox}</p>
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between">
-        <div className="">
+      <div className="flex flex-col md:grid grid-cols-12 items-center justify-between ">
+        <div className="md:col-span-9">
           <img className="" src={image} alt="car"></img>
         </div>
 
-        <div className=" flex flex-col text-lg font-semibold rounded p-2">
-          <p className="text-black">Inclus 200kms</p>
-          <div className="flex flex-row items-end">
+        <div className="md:col-span-3 grid grid-cols-12 md:flex flex-col text-lg font-semibold rounded p-2 items-center">
+          <div className="col-span-4">
+            <p className="text-black text-center">Inclus 200kms</p>
+          </div>
+
+          <div className="col-span-4 flex flex row justify-center items-end">
             <p className="text-4xl text-black">{price}</p>
             <p className="text-black"> €/jour</p>
           </div>
-          <button
-            id={id}
-            className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-celBlue100 hover:text-white transition-all"
-            onClick={click}
-          >
-            Choisir
-          </button>
+
+          <div className="col-span-4 flex flex-row justify-center">
+            <button
+              id={id}
+              className="mt-3 p-2 border-solid border-2 border-black rounded-full hover:bg-celBlue100 hover:text-white transition-all"
+              onClick={click}
+            >
+              Choisir
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { cars } from "../Utils/Cars";
 import { utilitaires } from "../Utils/Utilitaires";
 import CarCardRental from "../Components/Card/CarCardRental";
 import glass from "../Assets/misc/search-glass.png";
 
 export default function RentalResults() {
+  const navigate = useNavigate();
   const location = useLocation();
   const [car, setCar] = useState("");
   const [utilitaire, setUtilitaire] = useState("");
@@ -15,7 +16,7 @@ export default function RentalResults() {
   const carEngineOptions = ["Essence", "Hybride", "Electrique"];
   const utilitaireEngineOptions = ["Diesel", "Electrique"];
   const gearboxOptions = ["Automatique", "Manuelle"];
-  const [searchedData, setSearchData] = useState({
+  const [searchedData, setSearchedData] = useState({
     pickupLocation: location.state.searchData.pickupLocation,
     returnLocation: location.state.searchData.returnLocation,
     pickupDate: location.state.searchData.pickupDate,

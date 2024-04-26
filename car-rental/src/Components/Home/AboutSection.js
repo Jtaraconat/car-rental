@@ -4,14 +4,16 @@ import CommitmentCard from "../Card/CommitmentCard";
 export default function AboutSection() {
   return (
     <div className="p-5 my-10 rounded-lg border-slate-600 shadow shadow-lg shadow-slate-400">
-      <h2 className="text-4xl mb-7 col-span-12 text-celBlue100 ">
+      <h2 className="text-2xl md:text-4xl mb-7 col-span-12 text-celBlue100 ">
         Qui sommes nous
       </h2>
       <div className="grid grid-cols-12 grid-rows-2">
-        <div className="col-span-12 md:grid md:grid-cols-12 gap-2">
+        <div className="col-span-12 grid grid-cols-12 gap-2">
           <CommitmentCard />
+          <div className="col-span-8 col-start-3 md:col-span-8 md:col-start-3  border-b-2 border-slate-400 my-7"></div>
         </div>
-        <div className="text-lg col-span-12 text-center">
+
+        <div className="col-span-12 text-center">
           <div>
             <p>
               Bienvenue chez Auto-Loc, votre solution de location de voitures de
@@ -30,7 +32,7 @@ export default function AboutSection() {
               <br></br>
             </p>
           </div>
-          <div className=" mt-5 md:mt-10 text-center text-xl">
+          <div className="mt-10 text-center text-xl text-celBlue100 font-bold">
             <p>
               Faites confiance à Auto-Loc pour rendre votre prochain voyage
               inoubliable.

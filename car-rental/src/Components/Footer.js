@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className="flex flex-col justify-between bg-onyx p-2 text-white text-center">
       <div className="my-5 md:text-lg">
-        <ul className=" flex flex-row justify-around">
+        <ul className=" flex flex-row justify-between">
           <a>Nos voitures</a>
           <a>Avis de nos clients</a>
           <a>A propos de nous</a>

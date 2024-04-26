@@ -44,6 +44,11 @@ export default function RentalOptions() {
       setSingleOptionArray([...singleOptionArray, option.id]);
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     setAllRentalInfos({ ...allRentalInfos, optionsArray: singleOptionArray });
   }, [singleOptionArray]);

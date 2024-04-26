@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import RentalResults from "./Pages/RentalResults";
 import RentalOptions from "./Pages/Options";
 import RentalInfos from "./Pages/RentalInfos";
+import ProtectedRoutes from "./Components/ProtectedRoutes";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/search-results" element={<RentalResults />} />
-          <Route exact path="/options" element={<RentalOptions />} />
-          <Route exact path="/order-infos" element={<RentalInfos />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route exact path="/search-results" element={<RentalResults />} />
+            <Route exact path="/options" element={<RentalOptions />} />
+            <Route exact path="/order-infos" element={<RentalInfos />} />
+          </Route>
         </Routes>
       </Router>
       <Footer />
